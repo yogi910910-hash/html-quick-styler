@@ -1,6 +1,6 @@
-# html-quick-styler
-AI-powered HTML page generator using Python and Gradio
 # HTML Quick Styler
+AI-powered HTML page generator using Python and Gradio
+
 
 A simple AI-powered web tool that converts plain text descriptions into styled HTML webpages instantly.
 
