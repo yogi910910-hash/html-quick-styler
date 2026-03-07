@@ -1,102 +1,157 @@
-# HTML Quick Styler
+# 🚀 HTML Quick-Styler
 
-## Project Overview
+> AI-Powered HTML Page Generator using IBM Granite 3.3 2B Instruct
 
-HTML Quick Styler is a simple AI-assisted web generator that automatically creates a styled HTML webpage based on user input.
-The project was developed using Python in Google Colab and generates a modern portfolio-style webpage with sections like hero, features, portfolio, testimonials, and contact.
-
-This project demonstrates how Python can be used to automate basic web page generation with HTML and CSS.
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_USERNAME/HTML-Quick-Styler/blob/main/HTML_Quick_Styler.ipynb)
 
 ---
 
-## Features
+## 📌 Project Description
 
-* Automatic HTML webpage generation
-* Modern responsive design
-* Multiple webpage sections
-* Clean UI layout
-* Easy to customize
-* Beginner-friendly implementation
+**HTML Quick-Styler** is an intelligent web page generation platform that leverages IBM's Granite 3.3 2B Instruct model to deliver:
 
----
-
-## Technologies Used
-
-* Python
-* HTML
-* CSS
-* Google Colab
-* GitHub
+- 🎨 AI-powered HTML/CSS generation from plain text descriptions
+- 🔍 Automatic section detection (hero, features, about, pricing, etc.)
+- 🌈 8 pre-built professional color palettes
+- 📱 Responsive, mobile-first design out of the box
+- 🖥️ Interactive Gradio UI with Live Preview
 
 ---
 
-## Project Structure
+## 🗂️ Project Structure
 
-HTML-Quick-Styler
-
-HTML_Quick_Styler_Project.ipynb → Main notebook containing Python code
-output.html → Generated HTML webpage
-README.md → Project documentation
-requirements.txt → Required libraries
-
----
-
-## How the Project Works
-
-1. The user runs the Python notebook in Google Colab.
-2. The user enters details such as:
-
-   * Website title
-   * Website description
-   * Style preference
-3. The Python program processes the input.
-4. It automatically generates a complete HTML page with styling.
-5. The generated HTML file can be opened in any web browser.
+```
+HTML-Quick-Styler/
+├── html_quick_styler.py     # Main application (all classes + Gradio UI)
+├── requirements.txt         # Python dependencies
+├── HTML_Quick_Styler.ipynb  # Google Colab notebook version
+└── README.md
+```
 
 ---
 
-## How to Run the Project
+## ⚙️ Setup & Installation
 
-1. Open the notebook in Google Colab.
-2. Run all the cells.
-3. Enter the required webpage details.
-4. The program will generate an HTML file.
-5. Download or open the HTML file to view the webpage.
+### Option A: Google Colab (Recommended)
 
----
+1. Open [Google Colab](https://colab.research.google.com)
+2. Upload `HTML_Quick_Styler.ipynb` or copy cells from `html_quick_styler.py`
+3. Set Runtime → **GPU** (T4 recommended)
+4. Run all cells top to bottom
 
-## Example Output
+### Option B: Local
 
-The generated webpage includes:
-
-* Hero Section
-* Features Section
-* About Section
-* Portfolio Section
-* Testimonials
-* Contact Information
-* Footer
+```bash
+git clone https://github.com/YOUR_USERNAME/HTML-Quick-Styler.git
+cd HTML-Quick-Styler
+pip install -r requirements.txt
+python html_quick_styler.py
+```
 
 ---
 
-## Learning Outcome
+## 🚀 Quick Start (Colab Cells)
 
-Through this project, we learned:
+### Cell 1 – Install
+```python
+!pip install gradio transformers torch accelerate huggingface_hub
+```
 
-* Basic automation using Python
-* Generating HTML dynamically
-* Web page structure and styling
-* Using Google Colab for development
-* Managing projects using GitHub
+### Cell 2 – Load Model
+```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+import torch
+
+MODEL_ID = "ibm-granite/granite-3.3-2b-instruct"
+tokenizer = AutoTokenizer.from_pretrained(MODEL_ID)
+model = AutoModelForCausalLM.from_pretrained(
+    MODEL_ID,
+    torch_dtype=torch.float16,
+    device_map="auto"
+)
+print("✅ Model loaded!")
+```
+
+### Cell 3 – Run the App
+```python
+# Copy all classes from html_quick_styler.py, then:
+demo = create_interface()
+demo.launch(share=True)
+```
+
+The terminal will print a public URL like:
+```
+Running on public URL: https://xxxxxxxx.gradio.live
+```
 
 ---
 
-## Future Improvements
+## 🎨 Color Styles
 
-* Add more design templates
-* Add user image upload
-* Add theme switching
-* Convert it into a full web application
+| Style    | Vibe               |
+|----------|--------------------|
+| modern   | Indigo/Purple, dark |
+| vibrant  | Coral/Teal, energetic |
+| ocean    | Blues, professional |
+| forest   | Greens, natural    |
+| sunset   | Warm oranges       |
+| luxury   | Gold, premium      |
+| creative | Purple/Cyan, bold  |
+| minimal  | Grayscale, clean   |
 
 ---
 
+## 🔑 Architecture
+
+```
+User Input (Gradio)
+     ↓
+HTMLPageBuilder.detect_sections()
+     ↓
+ColorPaletteGenerator.get_palette()
+     ↓
+IBM Granite 3.3 2B  →  ai_enhance_content()
+     ↓
+generate_css() + section builders
+     ↓
+Complete HTML Page Output
+```
+
+---
+
+## 📋 Detected Sections
+
+Describe your page using natural language. The system auto-detects:
+
+| Keyword in description | Section generated |
+|------------------------|-------------------|
+| hero, welcome, banner  | Hero              |
+| feature, service, benefit | Features       |
+| about, mission, team   | About             |
+| portfolio, gallery     | Portfolio         |
+| testimonial, review    | Testimonials      |
+| pricing, plan, cost    | Pricing           |
+| contact, form, email   | Contact           |
+| footer (always added)  | Footer            |
+
+---
+
+## 📦 Dependencies
+
+- `gradio >= 4.0`
+- `transformers >= 4.40`
+- `torch >= 2.0`
+- `accelerate >= 0.26`
+- `huggingface_hub >= 0.21`
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome! For major changes, open an issue first.
+
+---
+
+## 📄 License
+
+MIT License © 2025
