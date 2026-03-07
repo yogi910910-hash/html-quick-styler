@@ -2,7 +2,8 @@
 
 > AI-Powered HTML Page Generator using IBM Granite 3.3 2B Instruct
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_USERNAME/HTML-Quick-Styler/blob/main/HTML_Quick_Styler.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/yogi910910-hash
+/HTML-Quick-Styler/blob/main/HTML_Quick_Styler.ipynb)
 
 ---
 
